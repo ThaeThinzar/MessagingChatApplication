@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingTop="20dp"
+    android:paddingBottom="20dp"
+    android:paddingRight="15dp"
+    android:paddingLeft="60dp">
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal">
+       <LinearLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_toLeftOf="@+id/tv_message_layout"
+       android:layout_alignBottom="@+id/tv_message_layout"
+       android:paddingRight="8dp"
+       android:orientation="vertical">
+
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Tony"
+           android:textColor="#000"
+           android:textSize="10sp" />
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="18:12"
+           android:textColor="#ffff"
+           android:textSize="10sp"  />
+   </LinearLayout>
+       <com.daasuu.bl.BubbleLayout
+           android:id="@+id/tv_message_layout"
+           android:layout_height="wrap_content"
+           android:layout_weight = "3"
+           android:padding="8dp"
+           app:bl_arrowDirection="right"
+           app:bl_arrowHeight="8dp"
+           app:bl_arrowPosition="16dp"
+           app:bl_cornersRadius="8dp"
+           app:bl_arrowWidth="8dp"
+           app:bl_strokeWidth="1dp"
+           app:bl_bubbleColor="@color/send_color"
+           app:bl_strokeColor="@color/send_color"
+           android:layout_alignParentRight="true"
+           android:layout_width="wrap_content">
+
+           <TextView
+               android:id="@+id/message_body"
+               android:layout_width="300dp"
+               android:layout_height="wrap_content"
+               android:maxWidth="240dp"
+               android:text="hi man, how are you?"
+               android:textColor="#000" />
+       </com.daasuu.bl.BubbleLayout>
+       <!-- <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/message_layout"
+            android:background="@drawable/chat_bubble_bg"
+            android:layout_alignParentRight="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/message_body"
+                android:textColor="#000"
+                android:textSize="16sp"
+                android:padding="8dp"
+                android:text="Placeholder message"
+                />
+
+        </FrameLayout>-->
+
+   </LinearLayout>
+
+</RelativeLayout>

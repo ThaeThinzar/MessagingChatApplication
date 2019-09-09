@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="8dp"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:background="@color/send_color"
+    android:gravity="bottom">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:textColor="#000"
+            android:inputType="text"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_edit_message"
+            android:hint=" Write a message..."
+            android:padding="8dp"
+            android:ems="10"
+            android:imeOptions="actionDone"
+            android:id="@+id/messageArea"
+            android:maxHeight="80dp"
+            >
+            <requestFocus />
+        </EditText>
+        <ImageButton
+            android:id="@+id/btn_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|right"
+            android:layout_marginRight="6dp"
+            android:scaleType="fitXY"
+            android:paddingRight="4dp"
+            android:src="@drawable/ic_insert_emoticon_black_24dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            />
+    </FrameLayout>
+    <ImageView
+        android:id="@+id/sendButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_weight="4"
+        android:padding="4dp"
+        android:src="@android:drawable/ic_menu_send" />
+</LinearLayout>
