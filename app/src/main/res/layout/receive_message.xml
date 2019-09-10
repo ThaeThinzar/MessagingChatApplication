@@ -42,8 +42,8 @@
         tools:ignore="MissingConstraints">
         <TextView
             android:id="@+id/tv_receive_message"
-            android:text="hi man, how are you?"
-            android:background="@drawable/rounded_rectangle_receive"
+            android:text="hi man, how are you? hi man, hi man, how are you?hi man, how are you?hi man, how are you?how are you?hi man, how are you?"
+            android:background="@drawable/rounded_rectangle_corner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxWidth="240dp"

@@ -6,7 +6,7 @@
     android:paddingBottom="8dp"
     android:paddingLeft="8dp"
     android:paddingRight="8dp"
-    android:background="@color/send_color"
+    android:background="@color/write_msg_color"
     android:gravity="bottom">
     <FrameLayout
         android:layout_width="match_parent"
@@ -30,7 +30,7 @@
             <requestFocus />
         </EditText>
         <ImageButton
-            android:id="@+id/btn_clear"
+            android:id="@+id/btn_stamp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center|right"

@@ -18,6 +18,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -51,8 +52,15 @@ public class ChatActivity extends AppCompatActivity {
     @BindView(R.id.sendButton)
     ImageView mSend;
 
+    @BindView(R.id.btn_stamp)
+    ImageButton mStamp;
+
+    @BindView(R.id.layout_stamp)
+    LinearLayout stampLayout;
+
     Firebase reference1, reference2;
     ChatListAdapter chatListAdapter;
+    boolean isStamp = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +83,25 @@ public class ChatActivity extends AppCompatActivity {
                     reference2.push().setValue(map);
                     mMessageArea.setText("");
                 }
+            }
+        });
+        mStamp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(isStamp){
+                    stampLayout.setVisibility(View.VISIBLE);
+                    InputMethodManager inputMethodManager = (InputMethodManager)
+                            getApplicationContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    // Hide the soft keyboard
+                    inputMethodManager.hideSoftInputFromWindow(mMessageArea.getWindowToken(),0);
+                    isStamp = false;
+                } else {
+                    stampLayout.setVisibility(View.GONE);
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.showSoftInput(mMessageArea, InputMethodManager.SHOW_IMPLICIT);
+                    isStamp = true;
+                }
+
             }
         });
         mMessageArea.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -101,6 +128,7 @@ public class ChatActivity extends AppCompatActivity {
                 return false;
             }
         });
+
         reference1.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
@@ -184,7 +212,7 @@ public class ChatActivity extends AppCompatActivity {
 
     private void  addMessage(String message, int i) {
         LayoutInflater messageInflater = (LayoutInflater) getApplicationContext().getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-        if( i == 2) {
+        if( i == 1) {
             View view = messageInflater.inflate(R.layout.sender_message,null);
             TextView tvSendMsg = view.findViewById(R.id.message_body);
             tvSendMsg.setText(message);
